@@ -1,35 +1,35 @@
-# 🧪 Research Lab Management Web App
+# Research Lab Management Web App
 
 A full-stack web application for managing research publications, groups, and user collaboration within a laboratory environment. Built with **Rust (SQLx)** and **Node.js** on the backend, and **Next.js** on the frontend.
 
 ---
 
-## 🚀 Features
+## Features
 
-### ✅ User Management
+### User Management
 - Register and manage user accounts
 - Roles: `admin`, `researcher`, `leader`
 - Secure password storage using hashes
 - Email format validation
 
-### 📚 Publications
+### Publications
 - Submit, update, and track publication status (`DRAFT`, `WAITING`, `APPROVED`)
 - Upload and manage associated files
 - Link publications to submitting researchers
 
-### 👥 Group Collaboration
+### Group Collaboration
 - Create and manage research groups
 - Assign leaders to groups
 - Add users to groups
 - Group status: `OPENED`, `CLOSED`, `DELETED`
 
-### 🗃️ Database Schema (PostgreSQL)
+### Database Schema (PostgreSQL)
 - Well-structured tables for users, publications, publication files, and groups
 - Foreign key relationships to enforce data integrity
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Rust**: Safe and performant web backend
@@ -48,14 +48,13 @@ A full-stack web application for managing research publications, groups, and use
 ### Prerequisites
 - Rust toolchain
 - docker compose
-- Node.js .
-- NPM .
-- PostgreSQL 
+- Node.js
+- NPM
+- PostgreSQL
 
-## Diagrams 
+## Diagrams
 
 ```mermaid
-
 classDiagram
     class User {
         +id: String
@@ -150,21 +149,14 @@ classDiagram
         +user_id: String
     }
 
-    User "1" --> "*" Link : possède
-    User "1" --> "*" Publication : soumet
-    User "1" --> "*" GroupUser : participe à
-    User "1" --> "*" Message : envoie/reçoit
-    User "1" --> "*" Notification : reçoit
-    Group "1" --> "*" GroupUser : est composé de
-    Group "1" --> "1" User : a pour leader
-    Publication "1" --> "*" PublicationFile : contient
-    Publication "1" --> "*" Group : appartient à
-    Conference "1" --> "*" Speaker : organise
-    Publication "1" --> "*" Conference : est associée à
-
-
-```
-
-## License
-
-This project is licensed under the MIT License.
+    User "1" --> "*" Link : possesses
+    User "1" --> "*" Publication : submits
+    User "1" --> "*" GroupUser : participates in
+    User "1" --> "*" Message : sends/receives
+    User "1" --> "*" Notification : receives
+    Group "1" --> "*" GroupUser : is composed of
+    Group "1" --> "1" User : has leader
+    Publication "1" --> "*" PublicationFile : contains
+    Publication "1" --> "*" Group : belongs to
+    Conference "1" --> "*" Speaker : organizes
+    Publication "1" --> "*" Conference : is associated with
